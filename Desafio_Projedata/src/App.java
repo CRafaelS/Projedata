@@ -63,10 +63,13 @@ public class App {
         novaListaFuncionarios.forEach(print -> System.out.println(print));
 
         // 3.8 – Imprimir os funcionários que fazem aniversário no mês 10 e 12.
+        // System.out.println("3.8 – Imprimir os funcionários que fazem aniversário no mês 10 e 12");
+        novaListaFuncionarios.stream().filter(mes -> mes.getDataNascimento().getMonthValue() == 10 || mes.getDataNascimento().getMonthValue() == 12
+        ).forEach(print -> System.out.println(print));
 
         // 3.9 – Imprimir o funcionário com a maior idade, exibir os atributos: nome e
         // idade.
-        System.out.println("3.9 – Imprimir o funcionário com a maior idade, exibir os atributos:");
+        //System.out.println("3.9 – Imprimir o funcionário com a maior idade, exibir os atributos:");
         Collections.sort(novaListaFuncionarios, Comparator.comparing(Funcionario::getDataNascimento));
         System.out.println("Nome: " + novaListaFuncionarios.get(0).getNome() + 
             ", Idade: " + (LocalDate.now().getYear() - novaListaFuncionarios.get(0).getDataNascimento().getYear()));
