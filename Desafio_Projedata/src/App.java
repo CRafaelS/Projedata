@@ -25,8 +25,11 @@ public class App {
             new Funcionario("Helena", "02/09/1996", new BigDecimal("2799.93"), "Gerente"));
 
         // 3.2 – Remover o funcionário “João” da lista.
-        
+
         listaFuncionario = funcionarios.stream().filter(nomes -> nomes.getNome() != "João");
         novaListaFuncionarios = listaFuncionario.collect(Collectors.toList());
+
+         // 3.3 – Imprimir todos os funcionários com todas suas informações
+         novaListaFuncionarios.forEach(print -> System.out.println(print));
     }
 }
