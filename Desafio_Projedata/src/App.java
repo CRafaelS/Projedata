@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.Comparator;
 // import java.util.HashMap;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 // import java.util.Map;
@@ -65,6 +66,10 @@ public class App {
 
         // 3.9 – Imprimir o funcionário com a maior idade, exibir os atributos: nome e
         // idade.
+        System.out.println("3.9 – Imprimir o funcionário com a maior idade, exibir os atributos:");
+        Collections.sort(novaListaFuncionarios, Comparator.comparing(Funcionario::getDataNascimento));
+        System.out.println("Nome: " + novaListaFuncionarios.get(0).getNome() + 
+            ", Idade: " + (LocalDate.now().getYear() - novaListaFuncionarios.get(0).getDataNascimento().getYear()));
 
         // 3.10 – Imprimir a lista de funcionários por ordem alfabética.
         // System.out.println(3.10 – Imprimir a lista de funcionários por ordem alfabética.);
