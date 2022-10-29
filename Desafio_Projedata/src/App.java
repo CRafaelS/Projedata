@@ -46,19 +46,36 @@ public class App {
         // Map<String, List<String>> mapFuncionario = new HashMap<>();
 
         // novaListaFuncionarios.stream().map(values -> {
-        //     if (values.getFuncao() == null) {
-        //         mapFuncionario.put(values.getFuncao(), values.getNome());
-        //     }
-        //     else {
-        //         mapFuncionario.put(values.getFuncao(), values.getNome());
-        //     }
+        // if (values.getFuncao() == null) {
+        // mapFuncionario.put(values.getFuncao(), values.getNome());
+        // }
+        // else {
+        // mapFuncionario.put(values.getFuncao(), values.getNome());
+        // }
 
         // }).forEach(print -> System.out.println(print));
 
         // 3.6 – Imprimir os funcionários, agrupados por função.
-        System.out.println("3.6 – Imprimir os funcionários, agrupados por função.");
+        // System.out.println("3.6 – Imprimir os funcionários, agrupados por função.");
 
         Collections.sort(novaListaFuncionarios, Comparator.comparing(Funcionario::getFuncao));
         novaListaFuncionarios.forEach(print -> System.out.println(print));
+
+        // 3.8 – Imprimir os funcionários que fazem aniversário no mês 10 e 12.
+
+        // 3.9 – Imprimir o funcionário com a maior idade, exibir os atributos: nome e
+        // idade.
+
+        // 3.10 – Imprimir a lista de funcionários por ordem alfabética.
+        // System.out.println(3.10 – Imprimir a lista de funcionários por ordem alfabética.);
+        Collections.sort(novaListaFuncionarios, Comparator.comparing(Funcionario::getNome));
+        novaListaFuncionarios.stream().map(nomeFuncionario -> nomeFuncionario.getNome())
+                .forEach(print -> System.out.println((print)));
+
+        // 3.11 – Imprimir o total dos salários dos funcionários.
+
+        // 3.12 – Imprimir quantos salários mínimos ganha cada funcionário, considerando
+        // que o salário mínimo é R$1212.00.
+
     }
 }
