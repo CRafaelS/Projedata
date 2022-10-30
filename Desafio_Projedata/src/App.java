@@ -1,15 +1,15 @@
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
-// import java.util.HashMap;
+import java.util.HashMap;
 import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-// import java.util.Map;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -59,25 +59,25 @@ public class App {
         // }).forEach(print -> System.out.println(print));
 
         // 3.6 – Imprimir os funcionários, agrupados por função.
-        // System.out.println("3.6 – Imprimir os funcionários, agrupados por função.");
+        System.out.println("3.6 – Imprimir os funcionários, agrupados por função.");
 
         Collections.sort(novaListaFuncionarios, Comparator.comparing(Funcionario::getFuncao));
         novaListaFuncionarios.forEach(print -> System.out.println(print));
 
         // 3.8 – Imprimir os funcionários que fazem aniversário no mês 10 e 12.
-        // System.out.println("3.8 – Imprimir os funcionários que fazem aniversário no mês 10 e 12");
+        System.out.println("3.8 – Imprimir os funcionários que fazem aniversário no mês 10 e 12");
         novaListaFuncionarios.stream().filter(mes -> mes.getDataNascimento().getMonthValue() == 10 || mes.getDataNascimento().getMonthValue() == 12
         ).forEach(print -> System.out.println(print));
 
         // 3.9 – Imprimir o funcionário com a maior idade, exibir os atributos: nome e
         // idade.
-        //System.out.println("3.9 – Imprimir o funcionário com a maior idade, exibir os atributos:");
+        System.out.println("3.9 – Imprimir o funcionário com a maior idade, exibir os atributos:");
         Collections.sort(novaListaFuncionarios, Comparator.comparing(Funcionario::getDataNascimento));
         System.out.println("Nome: " + novaListaFuncionarios.get(0).getNome() + 
             ", Idade: " + (LocalDate.now().getYear() - novaListaFuncionarios.get(0).getDataNascimento().getYear()));
 
         // 3.10 – Imprimir a lista de funcionários por ordem alfabética.
-        // System.out.println(3.10 – Imprimir a lista de funcionários por ordem alfabética.);
+        System.out.println("3.10 – Imprimir a lista de funcionários por ordem alfabética.");
         Collections.sort(novaListaFuncionarios, Comparator.comparing(Funcionario::getNome));
         novaListaFuncionarios.stream().map(nomeFuncionario -> nomeFuncionario.getNome())
                 .forEach(print -> System.out.println((print)));
@@ -91,5 +91,10 @@ public class App {
 
         // 3.12 – Imprimir quantos salários mínimos ganha cada funcionário, considerando
         // que o salário mínimo é R$1212.00.
+        BigDecimal salarioMinimo = new BigDecimal("1212.00");
+        Map<String,BigDecimal> example = new HashMap<>();
+
+        novaListaFuncionarios.stream().forEach(salario -> example.put(salario.getNome(), salario.getSalario().divide(salarioMinimo,2)));
+        System.out.println(example);
     }
 }
