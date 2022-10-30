@@ -1,9 +1,11 @@
 import java.util.List;
+import java.util.Locale;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 // import java.util.HashMap;
 import java.math.BigDecimal;
+import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -81,9 +83,13 @@ public class App {
                 .forEach(print -> System.out.println((print)));
 
         // 3.11 – Imprimir o total dos salários dos funcionários.
+        Locale localeBR = new Locale("pt","BR");
+        NumberFormat dinheiro = NumberFormat.getCurrencyInstance(localeBR);
+        BigDecimal valorTotal;
+        valorTotal = novaListaFuncionarios.stream().map(salario -> salario.getSalario()).reduce(BigDecimal.ZERO, BigDecimal::add);
+        System.out.println(dinheiro.format(valorTotal));
 
         // 3.12 – Imprimir quantos salários mínimos ganha cada funcionário, considerando
         // que o salário mínimo é R$1212.00.
-
     }
 }
