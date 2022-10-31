@@ -39,8 +39,11 @@ public class App {
         // 3.3 – Imprimir todos os funcionários com todas suas informações
         novaListaFuncionarios.forEach(print -> System.out.println(print));
 
-        // não consegui trabalhar com o BigDecimal para fazer o 3.4 – Os funcionários
-        // receberam 10% de aumento de salário
+        //3.4 – Os funcionários receberam 10% de aumento de salário
+        System.out.println("3.4 – Os funcionários receberam 10% de aumento de salário");
+        BigDecimal aumento = new BigDecimal("1.1");
+        novaListaFuncionarios.stream().forEach(funcionario -> funcionario.setSalario(funcionario.getSalario().multiply(aumento)));
+        System.out.println(novaListaFuncionarios);
 
         // 3.5 – Agrupar os funcionários por função em um MAP, sendo a chave a “função”
         // e o valor a “lista de funcionários”.
